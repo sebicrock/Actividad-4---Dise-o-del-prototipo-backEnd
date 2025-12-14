@@ -1,5 +1,6 @@
 package com.bank.bank.dto.dtoResquest.dtoRequestCreateCdt;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import jakarta.validation.constraints.AssertTrue;
@@ -49,8 +50,8 @@ public class DtoRequestCreateCdts {
     @Min(value = 1000000, message = "El monto mínimo del CDT es $1.000.000 COP")
     private Long cdtAmount;
 
-    @NotBlank(message = "El plazo del CDT es obligatorio")
-    private String cdtTerm; // días: 30, 60, 90, 180, 360, etc.
+    @NotNull(message = "El plazo del CDT es obligatorio")
+    private Long cdtTerm; // días: 30, 60, 90, 180, 360, etc.
 
     @NotBlank(message = "La forma de pago de intereses es obligatoria")
     private String interestPayment; 
@@ -106,7 +107,7 @@ public class DtoRequestCreateCdts {
     private Double maturityAmount;
 
     @NotNull(message = "La fecha de apertura es obligatoria")
-    private LocalDateTime openingDate;
+    private LocalDate openingDate;
 
     @NotNull(message = "La fecha de vencimiento es obligatoria")
     private LocalDateTime maturityDate;
